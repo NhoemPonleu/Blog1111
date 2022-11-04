@@ -18,7 +18,6 @@ public class CategoryServiceImple implements CategoryService{
      private CategoryRepository categoryRepository;
 	@Autowired
 	private ModelMapper modelMapper;
-	@Override
 	public CategoryDTO createCategory(CategoryDTO categoryDTO) {
 		Category cat=this.modelMapper.map(categoryDTO, Category.class);
 		Category addcat=this.categoryRepository.save(cat);
@@ -61,5 +60,7 @@ public class CategoryServiceImple implements CategoryService{
 		List<CategoryDTO> collect = list.stream().map((cat)->this.modelMapper.map(cat, CategoryDTO.class)).collect(Collectors.toList());
 		return collect;
 	}
+
+	
 
 }
